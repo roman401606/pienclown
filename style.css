@@ -1,97 +1,72 @@
-/* Estilos base del Sistema de Inscripción Escolar
-   TODO (rama feature-estilo): ajustar la paleta de colores de este archivo
-   (variables :root abajo) sin romper el resto del diseño. */
-
-:root {
-  --color-primario: #2c3e50;
-  --color-secundario: #ecf0f1;
-  --color-acento: #2980b9;
-  --color-texto: #2c3e50;
+/* Estilos mejorados del Sistema de Inscripción Escolar */
+:root{
+  --bg:#f6f8fb;
+  --card:#ffffff;
+  --accent:#0b5ed7;
+  --text:#243746;
+  --muted:#6c7a89;
+  --danger:#d9534f;
+  --success:#198754;
+  --radius:10px;
+  --max-width:980px;
 }
 
-* {
-  box-sizing: border-box;
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background:var(--bg);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
 }
-
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 0;
-  color: var(--color-texto);
-  background-color: var(--color-secundario);
+.container{
+  max-width:var(--max-width);
+  margin:32px auto;
+  padding:20px;
 }
-
-header {
-  background-color: var(--color-primario);
-  color: white;
-  padding: 1.5rem;
-  text-align: center;
+.site-header{
+  text-align:center;
+  padding:20px 10px;
 }
+.site-header h1{margin:0;font-size:1.6rem}
+.tagline{color:var(--muted);margin-top:6px}
 
-header .tagline {
-  margin: 0.25rem 0 0;
-  font-size: 0.9rem;
-  opacity: 0.85;
+.site-nav{
+  display:flex;
+  gap:12px;
+  justify-content:center;
+  margin:18px 0 28px 0;
 }
-
-nav {
-  background-color: var(--color-acento);
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  padding: 0.75rem;
+.site-nav a{
+  text-decoration:none;
+  color:var(--accent);
+  padding:8px 12px;
+  border-radius:8px;
 }
+.site-nav a:hover{background:rgba(11,94,215,0.08)}
 
-nav a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
+main{display:grid;grid-template-columns:1fr;gap:18px}
+section{background:var(--card);padding:18px;border-radius:var(--radius);box-shadow:0 6px 18px rgba(36,55,70,0.06)}
+section h2{margin-top:0}
+
+/* Form styles */
+.form-row{display:flex;flex-direction:column;margin-bottom:12px}
+.form-row label{font-weight:600;margin-bottom:6px}
+.form-row input,
+.form-row textarea{
+  padding:10px 12px;border:1px solid #e6e9ee;border-radius:8px;font-size:0.95rem;color:var(--text);
 }
+.form-row textarea{min-height:100px;resize:vertical}
+.form-actions{display:flex;align-items:center;gap:12px}
+.btn{background:var(--accent);color:#fff;border:none;padding:10px 16px;border-radius:8px;cursor:pointer}
+.btn:hover{opacity:0.95}
 
-nav a:hover {
-  text-decoration: underline;
-}
+.error{color:var(--danger);font-size:0.9rem;margin-top:6px;min-height:1em}
+.success{color:var(--success);font-weight:600}
 
-main {
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 0 1rem;
-}
+footer{margin-top:20px;text-align:center;color:var(--muted);font-size:0.95rem}
 
-section {
-  background: white;
-  border-radius: 6px;
-  padding: 1.25rem 1.5rem;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-}
-
-form label {
-  display: block;
-  margin-top: 0.75rem;
-  font-weight: bold;
-}
-
-form input, form textarea {
-  width: 100%;
-  padding: 0.5rem;
-  margin-top: 0.25rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-form button {
-  margin-top: 1rem;
-  background-color: var(--color-acento);
-  color: white;
-  border: none;
-  padding: 0.6rem 1.2rem;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-footer {
-  text-align: center;
-  padding: 1rem;
-  font-size: 0.85rem;
-  color: #666;
+/* Responsive */
+@media(min-width:720px){
+  main{grid-template-columns:1fr 360px}
 }
